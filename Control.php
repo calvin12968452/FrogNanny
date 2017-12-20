@@ -3,7 +3,7 @@
     require("dbconnect.php");
     require_once('Model.php');
     $action =$_REQUEST['act'];
-
+    // 這是新版XD
     switch ($action) {
         //新增
         case 'insert':
