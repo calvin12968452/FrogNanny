@@ -15,6 +15,14 @@
             insertFrog($family, $genus, $species, $info, $place);
             echo $species;
         break;
+        
+        case 'update' :
+            $id = (int) $_REQUEST['id'];
+            $species=$_REQUEST['species'];
+            $info=$_REQUEST['info'];
+            $place=$_REQUEST['place'];
+            updateFrog($id, $species, $info, $place);
+            
     }
 ?>
 <!DOCTYPE>

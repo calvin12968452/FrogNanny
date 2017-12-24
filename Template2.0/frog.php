@@ -133,10 +133,14 @@
                             
                           "<div class='card-body'>",
                             "<h4 class='card-title'>", $rs['species'] ,"</h4>",
+                            "<p class='card-text'>科別: ", $rs['family'] ,"</p>",
+                            "<p class='card-text'>屬種: ", $rs['genus'] ,"</p>",
                             "<p class='card-text'>特徵: ", $rs['info'] ,"</p>",
                             "<p class='card-text'>棲息地: ", $rs['place'] ,"</p>",
                             "<a href='#' class='btn btn-primary'>Go somewhere</a>",
-                          "</div>",
+                            "　　　　",
+                            "<a href='editFrog.php?id = " , $rs['id'] ,  " 'class='btn btn-primary'>修改</a>",
+                          "</div>", 
                         "</div>",
                       "</div>";
                         }
