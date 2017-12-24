@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+    require_once('dbconnect.php');
+    $sql = " SELECT * FROM `frogrecord` WHERE `family` = '樹蛙科'  ";
+    $result = mysqli_query($conn , $sql)
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -118,32 +123,26 @@
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row">
-                  <div class="col-md-6 mb-2">
-                    <div class="card" style="width: 20rem;">
-                        <div class="text-center">
-                            <img style="width: 85%;" class="card-img-top" src="http://www.ellison.idv.tw/www/Gallery/2007/20071127/15.jpg" alt="Card image cap">
-                        </div>
-                      <div class="card-body">
-                        <h4 class="card-title">莫氏樹蛙</h4>
-                        <p class="card-text">特徵: 小小的</p>
-                        <p class="card-text">棲息地: 濕濕的</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-2">
-                    <div class="card" style="width: 20rem">
-                        <div class="text-center">
-                            <img style="width: 85%;" class="card-img-top" src="http://www.ellison.idv.tw/www/Gallery/2007/20071127/15.jpg" alt="Card image cap">
-                        </div>
-                      <div class="card-body">
-                        <h4 class="card-title">莫氏樹蛙</h4>
-                        <p class="card-text">特徵: 小小的</p>
-                        <p class="card-text">棲息地: 濕濕的</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                  </div>
+                  <?php
+                        while($rs = mysqli_fetch_array($result)){
+                            echo "<div class='col-md-6 mb-2'>",
+                                 "<div class='card' style='width: 20rem'>",
+                            "<div class='text-center'>",
+                                "<img style='width: 85%;' class='card-img-top' src='http://www.ellison.idv.tw/www/Gallery/2007/20071127/15.jpg' alt='Card image cap'>",   
+                            "</div>",
+                            
+                          "<div class='card-body'>",
+                            "<h4 class='card-title'>", $rs['species'] ,"</h4>",
+                            "<p class='card-text'>特徵: ", $rs['info'] ,"</p>",
+                            "<p class='card-text'>棲息地: ", $rs['place'] ,"</p>",
+                            "<a href='#' class='btn btn-primary'>Go somewhere</a>",
+                          "</div>",
+                        "</div>",
+                      "</div>";
+                        }
+                    
+                    ?>
+                    
                 </div>
               </div>
               <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
